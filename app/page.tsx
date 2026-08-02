@@ -1,9 +1,9 @@
-import About from "components/About";
-import Contact from "components/Contact";
-import FeaturedProducts from "components/FeaturedProducts";
-import FreeResources from "components/FreeResources";
 import Hero from "components/Hero";
+import FeaturedProducts from "components/FeaturedProducts";
+import About from "components/About";
+import FreeResources from "components/FreeResources";
 import Testimonials from "components/Testimonials";
+import Contact from "components/Contact";
 
 export default function Home() {
   return (
