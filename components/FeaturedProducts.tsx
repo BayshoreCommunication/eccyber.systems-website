@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { ArrowRight, Star } from "lucide-react";
-import { motion } from "framer-motion";
 
 const products = [
   {
@@ -94,32 +93,20 @@ const colors: Record<string, string> = {
 
 const FeaturedProducts = () => {
   return (
-    <section id="products" className="py-24 bg-white overflow-hidden">
+    <section id="products" className="pt-4 pb-16 md:py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-6">
-        {/* Badge with Animation */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="flex justify-center"
-        >
+        {/* Badge */}
+        <div className="flex justify-center">
           <div className="inline-flex items-center gap-3 rounded-full border border-orange-300 bg-orange-50 px-6 py-3 shadow-sm">
             <Star className="h-5 w-5 fill-orange-500 text-orange-500" />
             <span className="font-semibold uppercase tracking-widest text-orange-600">
               Our Collection
             </span>
           </div>
-        </motion.div>
+        </div>
 
-        {/* Heading with Animation */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mx-auto mt-8 max-w-4xl text-center"
-        >
+        {/* Heading */}
+        <div className="mx-auto mt-8 max-w-4xl text-center">
           <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900">
             Featured Products
           </h2>
@@ -127,17 +114,13 @@ const FeaturedProducts = () => {
           <p className="mt-5 text-xl text-slate-500">
             Explore our best resources to learn, teach and stay safe online.
           </p>
-        </motion.div>
+        </div>
 
         {/* Products Grid (8 Products) */}
         <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {products.map((product, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: (index % 4) * 0.1 }}
               className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
             >
               <div>
@@ -193,7 +176,7 @@ const FeaturedProducts = () => {
                   <ArrowRight size={18} />
                 </a>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

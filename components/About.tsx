@@ -39,7 +39,7 @@ const About = () => {
   return (
     <section
       id="charlie"
-      className="relative bg-slate-50/50 py-24 overflow-hidden"
+      className="relative bg-slate-50/50 py-12 md:py-24 overflow-hidden"
     >
       {/* Background Decorative Elements */}
       <div className="absolute top-1/4 -left-20 h-96 w-96 rounded-full bg-blue-100/50 blur-3xl -z-10" />

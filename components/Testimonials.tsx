@@ -99,7 +99,7 @@ const Testimonials = () => {
 
   return (
     <section
-      className="relative overflow-hidden bg-cover bg-center bg-no-repeat py-24"
+      className="relative overflow-hidden bg-cover bg-center bg-no-repeat py-12 md:py-24"
       style={{
         backgroundImage: "url('/images/eccyber.systems/eccs_hero_bg.png')",
       }}

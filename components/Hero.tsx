@@ -15,7 +15,7 @@ const Mascot = () => {
   };
 
   return (
-    <section className="py-24 bg-white">
+    <section className="pt-8 pb-4 md:py-16 bg-white">
       <div className="container mx-auto px-6 flex items-center justify-center">
         <div className="relative group cursor-pointer" onClick={toggleSound}>
           <video

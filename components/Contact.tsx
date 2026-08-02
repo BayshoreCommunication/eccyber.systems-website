@@ -12,7 +12,6 @@ import {
   CheckCircle2,
   Sparkles,
 } from "lucide-react";
-import { motion } from "framer-motion";
 
 const Contact = () => {
   const [fileName, setFileName] = useState<string | null>(null);
@@ -26,7 +25,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-slate-900 py-24 text-white"
+      className="relative overflow-hidden bg-slate-900 py-12 md:py-24 text-white"
     >
       {/* Glow Effects */}
       <div className="absolute top-0 left-1/4 h-96 w-96 rounded-full bg-blue-600/20 blur-[120px] pointer-events-none" />
@@ -35,12 +34,7 @@ const Contact = () => {
       <div className="relative z-10 container mx-auto px-6">
         <div className="grid items-center gap-16 lg:grid-cols-2">
           {/* Left Side */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <div>
             <div className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 border border-blue-500/20 px-4 py-2 text-blue-400 text-sm font-semibold uppercase tracking-wider">
               <Sparkles size={16} />
               Let&apos;s Work Together
@@ -108,16 +102,10 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Side: Modern Glassmorphic Form */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="rounded-[32px] bg-slate-800/40 p-8 shadow-2xl backdrop-blur-xl border border-slate-700/80 lg:p-10"
-          >
+          <div className="rounded-[32px] bg-slate-800/40 p-8 shadow-2xl backdrop-blur-xl border border-slate-700/80 lg:p-10">
             <form onSubmit={(e) => e.preventDefault()} className="space-y-5">
               {/* Name */}
               <div className="relative">
@@ -196,21 +184,19 @@ const Contact = () => {
               </label>
 
               {/* Submit Button */}
-              <motion.button
-                whileHover={{ scale: 1.01 }}
-                whileTap={{ scale: 0.98 }}
+              <button
                 type="submit"
-                className="flex h-14 w-full items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-500 text-lg font-bold text-white shadow-lg shadow-blue-600/30 transition hover:from-blue-500 hover:to-blue-400"
+                className="flex h-14 w-full items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-500 text-lg font-bold text-white shadow-lg shadow-blue-600/30 transition hover:from-blue-500 hover:to-blue-400 active:scale-95"
               >
                 <Send size={18} />
                 Send Message
-              </motion.button>
+              </button>
 
               <p className="text-center text-xs text-slate-500">
                 Protected by reCAPTCHA. Privacy and Terms apply.
               </p>
             </form>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

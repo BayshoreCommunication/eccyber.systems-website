@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Download, CheckCircle2, ShieldAlert, Sparkles } from "lucide-react";
-import { motion } from "framer-motion";
 
 const FreeResources = () => {
   const [email, setEmail] = useState("");
@@ -18,7 +17,7 @@ const FreeResources = () => {
   return (
     <section
       id="free-resources"
-      className="relative overflow-hidden bg-gradient-to-br from-blue-900 via-slate-900 to-indigo-950 py-24 text-white"
+      className="relative overflow-hidden bg-gradient-to-br from-blue-900 via-slate-900 to-indigo-950 py-12 md:py-24 text-white"
     >
       {/* Glow Backgrounds */}
       <div className="absolute top-0 right-0 h-96 w-96 rounded-full bg-orange-500/15 blur-[120px] pointer-events-none" />
@@ -32,12 +31,7 @@ const FreeResources = () => {
             Free Lead Magnet
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
+          <div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
               Download Free Cyber Safety{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300">
@@ -49,22 +43,12 @@ const FreeResources = () => {
               Want a sneak peek? Get our free printable activity sheet for your
               kids today and start teaching digital safety the fun way.
             </p>
-          </motion.div>
+          </div>
 
           {/* Form Box / Success Message */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mt-10 max-w-xl mx-auto"
-          >
+          <div className="mt-10 max-w-xl mx-auto">
             {isSubmitted ? (
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                className="flex flex-col items-center justify-center rounded-2xl bg-green-500/10 border border-green-500/30 p-8 text-center"
-              >
+              <div className="flex flex-col items-center justify-center rounded-2xl bg-green-500/10 border border-green-500/30 p-8 text-center">
                 <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-500 text-white mb-4 shadow-lg shadow-green-500/30">
                   <CheckCircle2 size={32} />
                 </div>
@@ -76,7 +60,7 @@ const FreeResources = () => {
                   <span className="text-orange-400 font-medium">{email}</span>.
                   Check your inbox!
                 </p>
-              </motion.div>
+              </div>
             ) : (
               <form
                 onSubmit={handleSubmit}
@@ -97,22 +81,20 @@ const FreeResources = () => {
                   />
                 </div>
 
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                <button
                   type="submit"
-                  className="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-2xl bg-gradient-to-r from-orange-500 to-amber-500 text-lg font-bold text-white shadow-lg shadow-orange-500/30 hover:from-orange-600 hover:to-amber-600 transition whitespace-nowrap"
+                  className="inline-flex items-center justify-center gap-2 h-14 px-8 rounded-2xl bg-gradient-to-r from-orange-500 to-amber-500 text-lg font-bold text-white shadow-lg shadow-orange-500/30 hover:from-orange-600 hover:to-amber-600 transition whitespace-nowrap active:scale-95"
                 >
                   <Download size={20} />
                   Download Now
-                </motion.button>
+                </button>
               </form>
             )}
 
             <p className="mt-4 text-xs text-slate-400">
               No spam ever. Unsubscribe at any time. Get instant PDF access.
             </p>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
