@@ -15,24 +15,51 @@ const lexend = Lexend({
   variable: "--font-lexend",
 });
 
-const siteUrl = "https://tac-solution.vercel.app";
+const siteUrl = "https://eccyber-systems-web.vercel.app";
 const ogImageUrl = `${siteUrl}/og-image.png`;
 
-/* ---------------- METADATA ---------------- */
-
 export const metadata: Metadata = {
-  title: "TAC Solutions",
+  title: "ECCyber Systems | Cybersecurity & Digital Innovation",
   description:
-    "Empowering learners with in-demand tech skills, real-world projects, and career support to build a better future.",
-  metadataBase: new URL("https://tac-solution.vercel.app"),
+    "ECCyber Systems - Empowering businesses with cybersecurity awareness, books, digital solutions, and software engineering.",
+  metadataBase: new URL("https://eccyber-systems-web.vercel.app"),
   alternates: {
     canonical: "/",
     languages: {
       "en-US": "/en-US",
     },
   },
+  icons: {
+    icon: [
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico" },
+    ],
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
   openGraph: {
-    images: "/opengraph-image.png",
+    title: "ECCyber Systems | Cybersecurity & Digital Innovation",
+    description:
+      "ECCyber Systems - Empowering businesses with cybersecurity awareness, books, digital solutions, and software engineering.",
+    url: "https://eccyber-systems-web.vercel.app",
+    siteName: "ECCyber Systems",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "ECCyber Systems",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ECCyber Systems | Cybersecurity & Digital Innovation",
+    description:
+      "ECCyber Systems - Empowering businesses with cybersecurity awareness, books, digital solutions, and software engineering.",
+    images: ["/opengraph-image.png"],
   },
 };
 
