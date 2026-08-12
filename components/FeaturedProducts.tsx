@@ -12,26 +12,27 @@ const products = [
     oldPrice: "$12.00",
     badge: "New",
     color: "orange",
-    amazonLink: "https://www.amazon.com/dp/your-product-id-1",
+    amazonLink:
+      "https://www.amazon.com/When-Conversations-Turn-Into-Arguments/dp/B0GVW8532N/ref=sr_1_1?crid=FG4K9QKBAOXR&dib=eyJ2IjoiMSJ9.eGwTKxxelXKUWT0bbbh3Sg.3vpBhlet6LIRTyVcVZlvjdqFHfEvsIfzRBRQrvmYlz0&dib_tag=se&keywords=9798253255704&qid=1786533913&sprefix=9798253255704%2Caps%2C327&sr=8-1",
   },
-  {
-    image: "/images/eccyber.systems/book_2.png",
-    title: "Cyber Safety Coloring & Activity Book",
-    category: "Activity Book",
-    price: "$11.00",
-    badge: "New",
-    color: "blue",
-    amazonLink: "https://www.amazon.com/dp/your-product-id-2",
-  },
-  {
-    image: "/images/eccyber.systems/book_3.png",
-    title: "Charlie the Cyber Dog Notebook",
-    category: "Stationery",
-    price: "$6.00",
-    badge: "New",
-    color: "green",
-    amazonLink: "https://www.amazon.com/dp/your-product-id-3",
-  },
+  // {
+  //   image: "/images/eccyber.systems/book_2.png",
+  //   title: "Cyber Safety Coloring & Activity Book",
+  //   category: "Activity Book",
+  //   price: "$11.00",
+  //   badge: "New",
+  //   color: "blue",
+  //   amazonLink: "https://www.amazon.com/dp/your-product-id-2",
+  // },
+  // {
+  //   image: "/images/eccyber.systems/book_3.png",
+  //   title: "Charlie the Cyber Dog Notebook",
+  //   category: "Stationery",
+  //   price: "$6.00",
+  //   badge: "New",
+  //   color: "green",
+  //   amazonLink: "https://www.amazon.com/dp/your-product-id-3",
+  // },
   {
     image: "/images/eccyber.systems/book_4.png",
     title: "When Conversations Turn into Agreements",
@@ -40,46 +41,47 @@ const products = [
     oldPrice: "$10.00",
     badge: "New",
     color: "purple",
-    amazonLink: "https://www.amazon.com/dp/your-product-id-4",
+    amazonLink:
+      "https://www.amazon.com/When-Conversations-Turn-Into-Arguments/dp/B0GVW8532N/ref=sr_1_1?crid=FG4K9QKBAOXR&dib=eyJ2IjoiMSJ9.eGwTKxxelXKUWT0bbbh3Sg.3vpBhlet6LIRTyVcVZlvjdqFHfEvsIfzRBRQrvmYlz0&dib_tag=se&keywords=9798253255704&qid=1786533913&sprefix=9798253255704%2Caps%2C327&sr=8-1",
   },
-  {
-    image: "/images/eccyber.systems/book_1.png",
-    title: "Charlie's Online Safety Guide for Kids",
-    category: "Children's Book",
-    price: "$8.50",
-    oldPrice: "$11.00",
-    badge: "Popular",
-    color: "orange",
-    amazonLink: "https://www.amazon.com/dp/your-product-id-5",
-  },
-  {
-    image: "/images/eccyber.systems/book_2.png",
-    title: "Digital Citizenship Workbook",
-    category: "Activity Book",
-    price: "$10.00",
-    badge: "Sale",
-    color: "blue",
-    amazonLink: "https://www.amazon.com/dp/your-product-id-6",
-  },
-  {
-    image: "/images/eccyber.systems/book_3.png",
-    title: "Cyber Hero Sticker Pack & Planner",
-    category: "Stationery",
-    price: "$5.00",
-    badge: "New",
-    color: "green",
-    amazonLink: "https://www.amazon.com/dp/your-product-id-7",
-  },
-  {
-    image: "/images/eccyber.systems/book_4.png",
-    title: "Family Tech Agreement Toolkit",
-    category: "Parent Guide",
-    price: "$12.00",
-    oldPrice: "$15.00",
-    badge: "Bestseller",
-    color: "purple",
-    amazonLink: "https://www.amazon.com/dp/your-product-id-8",
-  },
+  // {
+  //   image: "/images/eccyber.systems/book_1.png",
+  //   title: "Charlie's Online Safety Guide for Kids",
+  //   category: "Children's Book",
+  //   price: "$8.50",
+  //   oldPrice: "$11.00",
+  //   badge: "Popular",
+  //   color: "orange",
+  //   amazonLink: "https://www.amazon.com/dp/your-product-id-5",
+  // },
+  // {
+  //   image: "/images/eccyber.systems/book_2.png",
+  //   title: "Digital Citizenship Workbook",
+  //   category: "Activity Book",
+  //   price: "$10.00",
+  //   badge: "Sale",
+  //   color: "blue",
+  //   amazonLink: "https://www.amazon.com/dp/your-product-id-6",
+  // },
+  // {
+  //   image: "/images/eccyber.systems/book_3.png",
+  //   title: "Cyber Hero Sticker Pack & Planner",
+  //   category: "Stationery",
+  //   price: "$5.00",
+  //   badge: "New",
+  //   color: "green",
+  //   amazonLink: "https://www.amazon.com/dp/your-product-id-7",
+  // },
+  // {
+  //   image: "/images/eccyber.systems/book_4.png",
+  //   title: "Family Tech Agreement Toolkit",
+  //   category: "Parent Guide",
+  //   price: "$12.00",
+  //   oldPrice: "$15.00",
+  //   badge: "Bestseller",
+  //   color: "purple",
+  //   amazonLink: "https://www.amazon.com/dp/your-product-id-8",
+  // },
 ];
 
 const colors: Record<string, string> = {
@@ -93,7 +95,10 @@ const colors: Record<string, string> = {
 
 const FeaturedProducts = () => {
   return (
-    <section id="products" className="pt-4 pb-16 md:py-24 bg-white overflow-hidden">
+    <section
+      id="products"
+      className="pt-4 pb-16 md:py-24 bg-white overflow-hidden"
+    >
       <div className="container mx-auto px-6">
         {/* Badge */}
         <div className="flex justify-center">
@@ -117,11 +122,12 @@ const FeaturedProducts = () => {
         </div>
 
         {/* Products Grid (8 Products) */}
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {/* Products Grid (2 Products - Centered) */}
+        <div className="mt-16 flex flex-wrap justify-center gap-8">
           {products.map((product, index) => (
             <div
               key={index}
-              className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
+              className="group flex w-full max-w-sm flex-col justify-between overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
             >
               <div>
                 <div className="relative overflow-hidden bg-slate-50">
@@ -140,7 +146,7 @@ const FeaturedProducts = () => {
                 </div>
 
                 <div className="p-6 text-center">
-                  <h3 className="min-h-[70px] text-xl font-bold text-slate-900 flex items-center justify-center">
+                  <h3 className="flex min-h-[70px] items-center justify-center text-xl font-bold text-slate-900">
                     {product.title}
                   </h3>
 
@@ -162,7 +168,7 @@ const FeaturedProducts = () => {
                 </div>
               </div>
 
-              {/* View Details Button linking to Amazon */}
+              {/* View Details Button */}
               <div className="p-6 pt-0 text-center">
                 <a
                   href={product.amazonLink}
