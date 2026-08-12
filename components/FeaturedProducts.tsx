@@ -12,8 +12,7 @@ const products = [
     oldPrice: "$12.00",
     badge: "New",
     color: "orange",
-    amazonLink:
-      "https://www.amazon.com/When-Conversations-Turn-Into-Arguments/dp/B0GVW8532N/ref=sr_1_1?crid=FG4K9QKBAOXR&dib=eyJ2IjoiMSJ9.eGwTKxxelXKUWT0bbbh3Sg.3vpBhlet6LIRTyVcVZlvjdqFHfEvsIfzRBRQrvmYlz0&dib_tag=se&keywords=9798253255704&qid=1786533913&sprefix=9798253255704%2Caps%2C327&sr=8-1",
+    amazonLink: "#",
   },
   // {
   //   image: "/images/eccyber.systems/book_2.png",
