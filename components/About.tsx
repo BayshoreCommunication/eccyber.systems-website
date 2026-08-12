@@ -116,10 +116,12 @@ const About = () => {
               <strong className="text-slate-900 font-semibold">
                 ECC Systems
               </strong>{" "}
-              is dedicated to raising awareness about cyber security among
-              children, teens, parents, and educators. Our mission is to equip
-              the next generation with the knowledge and confidence they need to
-              stay safe in today&apos;s digital world.
+              is here to help children, older adults, and families feel safe and
+              more confident online. We make cybersecurity and digital literacy
+              easier to understand by sharing practical guidance, simple tools,
+              and everyday tips that help people of all ages recognize online
+              risks, build safe habits, and navigate the digital world with
+              greater confidence.
             </p>
 
             {/* Features Grid List */}
