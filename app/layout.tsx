@@ -15,14 +15,14 @@ const lexend = Lexend({
   variable: "--font-lexend",
 });
 
-const siteUrl = "https://eccyber-systems-web.vercel.app";
+const siteUrl = "https://www.eccybersystems.com/";
 const ogImageUrl = `${siteUrl}/og-image.png`;
 
 export const metadata: Metadata = {
   title: "ECCyber Systems | Cybersecurity & Digital Innovation",
   description:
     "ECCyber Systems - Empowering businesses with cybersecurity awareness, books, digital solutions, and software engineering.",
-  metadataBase: new URL("https://eccyber-systems-web.vercel.app"),
+  metadataBase: new URL("https://www.eccybersystems.com/"),
   alternates: {
     canonical: "/",
     languages: {
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: "ECCyber Systems | Cybersecurity & Digital Innovation",
     description:
       "ECCyber Systems - Empowering businesses with cybersecurity awareness, books, digital solutions, and software engineering.",
-    url: "https://eccyber-systems-web.vercel.app",
+    url: "https://www.eccybersystems.com/",
     siteName: "ECCyber Systems",
     images: [
       {
