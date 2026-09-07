@@ -152,7 +152,7 @@ const FeaturedProducts = () => {
                     {product.category}
                   </p>
 
-                  <div className="mt-6 flex items-center justify-center gap-3">
+                  {/* <div className="mt-6 flex items-center justify-center gap-3">
                     {product.oldPrice && (
                       <span className="text-base text-gray-400 line-through">
                         {product.oldPrice}
@@ -162,7 +162,7 @@ const FeaturedProducts = () => {
                     <span className="text-3xl font-bold text-slate-900">
                       {product.price}
                     </span>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
@@ -170,13 +170,13 @@ const FeaturedProducts = () => {
               <div className="p-6 pt-0 text-center">
                 <a
                   href={product.amazonLink}
-                  target="_blank"
+                  // target="_blank"
                   rel="noopener noreferrer"
                   className={`inline-flex w-full items-center justify-center gap-2 rounded-full border-2 px-8 py-3 font-semibold transition ${
                     colors[product.color] || colors.orange
                   }`}
                 >
-                  View Details
+                  Coming Soon
                   <ArrowRight size={18} />
                 </a>
               </div>
