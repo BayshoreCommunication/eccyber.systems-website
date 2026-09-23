@@ -17,7 +17,7 @@ import { useEffect, useRef, useState } from "react";
 
 const EMAILJS_SERVICE_ID = "service_n9hogxm";
 const EMAILJS_TEMPLATE_ID = "template_xl7e2af";
-const EMAILJS_PUBLIC_KEY = "JY9DdzqCr98Kz-u6o112";
+const EMAILJS_PUBLIC_KEY = "JY9DdzqCr98Kz-u6o";
 
 const Contact = () => {
   const formRef = useRef<HTMLFormElement>(null);
