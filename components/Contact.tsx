@@ -1,26 +1,58 @@
 "use client";
 
-import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import {
-  Mail,
-  Phone,
-  MapPin,
-  User,
-  MessageCircle,
-  Paperclip,
-  Send,
   CheckCircle2,
+  Loader2,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  Send,
   Sparkles,
+  User,
+  XCircle,
 } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+
+const EMAILJS_SERVICE_ID = "service_n9hogxm";
+const EMAILJS_TEMPLATE_ID = "template_xl7e2af";
+const EMAILJS_PUBLIC_KEY = "JY9DdzqCr98Kz-u6o112";
 
 const Contact = () => {
-  const [fileName, setFileName] = useState<string | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "success" | "error"
+  >("idle");
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setFileName(e.target.files[0].name);
-    }
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!formRef.current) return;
+
+    setStatus("sending");
+
+    emailjs
+      .sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        EMAILJS_PUBLIC_KEY,
+      )
+      .then(() => {
+        setStatus("success");
+        formRef.current?.reset();
+      })
+      .catch((error) => {
+        console.error("EmailJS error:", error);
+        setStatus("error");
+      });
   };
+
+  useEffect(() => {
+    if (status !== "success" && status !== "error") return;
+    const timer = setTimeout(() => setStatus("idle"), 2000);
+    return () => clearTimeout(timer);
+  }, [status]);
 
   return (
     <section
@@ -30,6 +62,41 @@ const Contact = () => {
       {/* Glow Effects */}
       <div className="absolute top-0 left-1/4 h-96 w-96 rounded-full bg-blue-600/20 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 h-96 w-96 rounded-full bg-orange-500/15 blur-[120px] pointer-events-none" />
+
+      {/* Confirmation Popup */}
+      {(status === "success" || status === "error") && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
+          <div
+            className={`w-full max-w-sm rounded-3xl border bg-slate-900 p-8 text-center shadow-2xl ${
+              status === "success"
+                ? "border-green-500/30"
+                : "border-red-500/30"
+            }`}
+          >
+            <div
+              className={`mx-auto flex h-16 w-16 items-center justify-center rounded-full ${
+                status === "success"
+                  ? "bg-green-500/15 text-green-400"
+                  : "bg-red-500/15 text-red-400"
+              }`}
+            >
+              {status === "success" ? (
+                <CheckCircle2 size={32} />
+              ) : (
+                <XCircle size={32} />
+              )}
+            </div>
+            <h3 className="mt-5 text-xl font-bold text-white">
+              {status === "success" ? "Message Sent!" : "Something Went Wrong"}
+            </h3>
+            <p className="mt-2 text-sm text-slate-400">
+              {status === "success"
+                ? "We'll get back to you soon."
+                : "Please try again in a moment."}
+            </p>
+          </div>
+        </div>
+      )}
 
       <div className="relative z-10 container mx-auto px-6">
         <div className="grid items-center gap-16 lg:grid-cols-2">
@@ -106,7 +173,7 @@ const Contact = () => {
 
           {/* Right Side: Modern Glassmorphic Form */}
           <div className="rounded-[32px] bg-slate-800/40 p-8 shadow-2xl backdrop-blur-xl border border-slate-700/80 lg:p-10">
-            <form onSubmit={(e) => e.preventDefault()} className="space-y-5">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
               {/* Name */}
               <div className="relative">
                 <User
@@ -115,6 +182,7 @@ const Contact = () => {
                 />
                 <input
                   type="text"
+                  name="user_name"
                   placeholder="Your Name"
                   required
                   className="h-14 w-full rounded-2xl bg-slate-900/60 border border-slate-700 pl-14 pr-5 text-white placeholder-slate-400 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
@@ -129,6 +197,7 @@ const Contact = () => {
                 />
                 <input
                   type="email"
+                  name="user_email"
                   placeholder="Your Email"
                   required
                   className="h-14 w-full rounded-2xl bg-slate-900/60 border border-slate-700 pl-14 pr-5 text-white placeholder-slate-400 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
@@ -142,6 +211,7 @@ const Contact = () => {
                   size={20}
                 />
                 <textarea
+                  name="message"
                   rows={4}
                   placeholder="Tell us about your project..."
                   required
@@ -149,47 +219,23 @@ const Contact = () => {
                 />
               </div>
 
-              {/* Upload Box */}
-              <label className="flex cursor-pointer items-center justify-between rounded-2xl border border-dashed border-slate-700 bg-slate-900/30 p-4 transition hover:bg-slate-900/60 hover:border-blue-500">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-800 text-blue-400">
-                    <Paperclip size={18} />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-slate-200 text-sm">
-                      {fileName ? "File Attached" : "Attach Files"}
-                    </h4>
-                    <p className="text-xs text-slate-400 truncate max-w-[180px]">
-                      {fileName ? fileName : "Click to upload document"}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="text-xs font-medium text-slate-400 bg-slate-800 px-3 py-1.5 rounded-lg flex items-center gap-1.5">
-                  {fileName ? (
-                    <>
-                      <CheckCircle2 size={14} className="text-green-400" />
-                      <span className="text-green-400">Attached</span>
-                    </>
-                  ) : (
-                    <span>Browse</span>
-                  )}
-                </div>
-
-                <input
-                  type="file"
-                  onChange={handleFileChange}
-                  className="hidden"
-                />
-              </label>
-
               {/* Submit Button */}
               <button
                 type="submit"
-                className="flex h-14 w-full items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-500 text-lg font-bold text-white shadow-lg shadow-blue-600/30 transition hover:from-blue-500 hover:to-blue-400 active:scale-95"
+                disabled={status === "sending"}
+                className="flex h-14 w-full items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-500 text-lg font-bold text-white shadow-lg shadow-blue-600/30 transition hover:from-blue-500 hover:to-blue-400 active:scale-95 disabled:cursor-not-allowed disabled:opacity-60"
               >
-                <Send size={18} />
-                Send Message
+                {status === "sending" ? (
+                  <>
+                    <Loader2 size={18} className="animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <Send size={18} />
+                    Send Message
+                  </>
+                )}
               </button>
 
               <p className="text-center text-xs text-slate-500">
