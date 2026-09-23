@@ -182,7 +182,7 @@ const Contact = () => {
                 />
                 <input
                   type="text"
-                  name="user_name"
+                  name="name"
                   placeholder="Your Name"
                   required
                   className="h-14 w-full rounded-2xl bg-slate-900/60 border border-slate-700 pl-14 pr-5 text-white placeholder-slate-400 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
@@ -197,7 +197,7 @@ const Contact = () => {
                 />
                 <input
                   type="email"
-                  name="user_email"
+                  name="email"
                   placeholder="Your Email"
                   required
                   className="h-14 w-full rounded-2xl bg-slate-900/60 border border-slate-700 pl-14 pr-5 text-white placeholder-slate-400 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
@@ -211,7 +211,7 @@ const Contact = () => {
                   size={20}
                 />
                 <textarea
-                  name="message"
+                  name="body"
                   rows={4}
                   placeholder="Tell us about your project..."
                   required
